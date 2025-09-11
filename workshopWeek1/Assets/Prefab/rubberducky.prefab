@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &361871475082689049
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6255188
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.568844
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.008102
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.27970824
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.27970824
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6494331
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6494331
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      propertyPath: m_Name
+      value: rubberducky
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2966601850536858243}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7640435543837854785}
+  m_SourcePrefab: {fileID: 100100000, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+--- !u!1 &703909412442163016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f5148f9e07552a4bb77d2940505473c, type: 3}
+  m_PrefabInstance: {fileID: 361871475082689049}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2966601850536858243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703909412442163016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7151f879aaa167f41a1fdbbc3c5a3a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collectible
+--- !u!65 &7640435543837854785
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703909412442163016}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.021685826, y: 0.0135002835, z: 0.01758075}
+  m_Center: {x: 0.0022676324, y: 0.000013623088, z: 0.0056019844}
