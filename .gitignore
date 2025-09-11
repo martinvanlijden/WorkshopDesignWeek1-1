@@ -1,0 +1,78 @@
+# =============== #
+# Unity generated #
+# =============== #
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+
+# Unity cache and crash reports
+*.stacktrace
+*.pidb
+*.userprefs
+
+# Asset store tools
+Assets/AssetStoreTools*
+
+# =========== #
+# OS-specific #
+# =========== #
+.DS_Store
+Thumbs.db
+
+# ========== #
+# IDE files  #
+# ========== #
+# Visual Studio
+.vscode/
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+*.iml
+
+# JetBrains Rider cache
+.gradle/
+*.ipr
+
+# ================= #
+# Build artifacts   #
+# ================= #
+*.apk
+*.aab
+*.xcodeproj/
+*.xcworkspace/
+*.app
+*.ipa
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+
+# ================= #
+# Unity Cloud Build #
+# ================= #
+[Uu]ser[Ll]ettings/
+
+# ================= #
+# TextMesh Pro      #
+# ================= #
+Assets/TextMesh*/*.asset
+
+# ================= #
+# Addressables      #
+# ================= #
+/ServerData/
