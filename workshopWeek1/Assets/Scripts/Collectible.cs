@@ -9,6 +9,7 @@ public class Collectible : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("collected!!");
+            CollectibleTracker.collectduck();
             Destroy(this.gameObject);
         }
         
