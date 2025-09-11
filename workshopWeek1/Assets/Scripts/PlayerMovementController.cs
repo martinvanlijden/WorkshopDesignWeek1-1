@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMovementController3DStepBobbing : MonoBehaviour, PlayerMovement.IMoveActions
+public class PlayerMovementController3DJump : MonoBehaviour, PlayerMovement.IMoveActions
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float gravity = -9.81f;
-    [SerializeField] private float jumpHeight = 0.15f;
+    [SerializeField] private float jumpHeight = 1.5f;
+    [SerializeField] private float stepJumpHeight = 0.15f;
     [SerializeField] private float stepDistance = 1f;
 
     private CharacterController controller;
@@ -17,6 +18,7 @@ public class PlayerMovementController3DStepBobbing : MonoBehaviour, PlayerMoveme
 
     private Vector3 lastPosition;
     private float distanceTraveled = 0f;
+    private bool jumpPressed = false;
 
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class PlayerMovementController3DStepBobbing : MonoBehaviour, PlayerMoveme
     {
         HandleMovement();
         HandleStepBobbing();
+        HandleJump();
     }
 
     private void HandleMovement()
@@ -59,12 +62,21 @@ public class PlayerMovementController3DStepBobbing : MonoBehaviour, PlayerMoveme
 
             if (distanceTraveled >= stepDistance)
             {
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                velocity.y = Mathf.Sqrt(stepJumpHeight * -2f * gravity);
                 distanceTraveled = 0f;
             }
         }
 
         lastPosition = transform.position;
+    }
+
+    private void HandleJump()
+    {
+        if (jumpPressed && controller.isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+        jumpPressed = false;
     }
 
     public void OnMoving(InputAction.CallbackContext context)
@@ -74,5 +86,11 @@ public class PlayerMovementController3DStepBobbing : MonoBehaviour, PlayerMoveme
 
     public void OnLooking(InputAction.CallbackContext context)
     {
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            jumpPressed = true;
     }
 }
