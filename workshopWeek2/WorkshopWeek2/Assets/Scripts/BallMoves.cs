@@ -18,9 +18,6 @@ public class BallMoves : MonoBehaviour
     {
         float movement =  moveSpeed * Time.deltaTime;
         transform.Translate(new Vector3(movementInput.x, 0, movementInput.y)* movement);
-        
-        // float rotation = movementInput.x * zotateSpeed * Time.deltaTime;
-        // transform.Rotate(Vector3.up * rotation);
     }
 
     void OnMove(InputValue value)
