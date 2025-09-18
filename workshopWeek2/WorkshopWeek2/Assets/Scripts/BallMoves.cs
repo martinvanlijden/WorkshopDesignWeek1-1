@@ -5,6 +5,7 @@ public class BallMoves : MonoBehaviour
 {
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private float moveSpeed;
+    public Transform Cam;
     private Vector2 movementInput;
 
 // Start is called once before the first execution of Update after the MonoBehaviour is created
