@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     public LayerMask raycastMask = ~0;
     public GameObject crossPrefab;
     public float destroyDistance = 0.3f;
+    public string sceneToLoad = "EnemyStarter";
 
     InputAction movementAction;
     Vector3 targetPosition;
@@ -64,7 +66,7 @@ public class PlayerScript : MonoBehaviour
                 offset.y = 0;
 
                 if (offset.magnitude > 1f)
-                    targetPosition = pickupCenter - offset.normalized * 3f;
+                    targetPosition = pickupCenter - offset.normalized * 1f;
                 else
                     targetPosition = transform.position;
 
@@ -96,6 +98,14 @@ public class PlayerScript : MonoBehaviour
             Material mat = new Material(r.sharedMaterial);
             mat.color = color;
             r.material = mat;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Cylinder"))
+        {
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 }
