@@ -77,3 +77,5 @@ Assets/TextMesh*/*.asset
 # ================= #
 /ServerData/
 workshopWeek2/WorkshopWeek2/Assets/Scenes/Square Hole.unity
+Workshopweek4/Week3/ProjectSettings/ShaderGraphSettings.asset
+Workshopweek4/Week3/ProjectSettings/URPProjectSettings.asset
