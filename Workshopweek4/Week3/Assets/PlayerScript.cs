@@ -43,7 +43,7 @@ public class PlayerScript : MonoBehaviour
         else
             hasTarget = false;
 
-        if (activeCross != null && Vector3.Distance(transform.position, activeCross.transform.position) <= destroyDistance)
+        if (activeCross && Vector3.Distance(transform.position, activeCross.transform.position) <= destroyDistance)
         {
             Destroy(activeCross);
             activeCross = null;
@@ -54,30 +54,34 @@ public class PlayerScript : MonoBehaviour
     {
         Vector3 mousePos = Mouse.current.position.ReadValue();
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
 
-        if (groundPlane.Raycast(ray, out float enter))
+        if (Physics.Raycast(ray, out RaycastHit hit, 500f, raycastMask))
         {
-            Vector3 hitPoint = ray.GetPoint(enter);
-            Ray down = new Ray(new Vector3(hitPoint.x, 100f, hitPoint.z), Vector3.down);
-            if (Physics.Raycast(down, out RaycastHit hitInfo, 200f, raycastMask))
+            if (hit.collider.CompareTag("Pickup"))
             {
-                Debug.Log("Down ray hit: " + hitInfo.collider.name + " Tag: " + hitInfo.collider.tag);
+                Vector3 pickupCenter = hit.collider.bounds.center;
+                Vector3 offset = pickupCenter - transform.position;
+                offset.y = 0;
 
-                if (hitInfo.collider.CompareTag("Walkable"))
-                {
-                    targetPosition = hitInfo.point;
-                    hasTarget = true;
-                    SpawnColoredCross(hitInfo.point, Color.yellow);
-                }
+                if (offset.magnitude > 1f)
+                    targetPosition = pickupCenter - offset.normalized * 3f;
                 else
-                {
-                    SpawnColoredCross(hitInfo.point, Color.blue);
-                }
+                    targetPosition = transform.position;
+
+                hasTarget = true;
+                SpawnColoredCross(targetPosition, Color.cyan);
+                return;
+            }
+
+            if (hit.collider.CompareTag("Walkable"))
+            {
+                targetPosition = hit.point;
+                hasTarget = true;
+                SpawnColoredCross(hit.point, Color.yellow);
             }
             else
             {
-                SpawnColoredCross(hitPoint, Color.blue);
+                SpawnColoredCross(hit.point, Color.blue);
             }
         }
     }
@@ -85,7 +89,7 @@ public class PlayerScript : MonoBehaviour
     void SpawnColoredCross(Vector3 position, Color color)
     {
         if (!crossPrefab) return;
-        if (activeCross != null) Destroy(activeCross);
+        if (activeCross) Destroy(activeCross);
         activeCross = Instantiate(crossPrefab, position + Vector3.up * 0.01f, Quaternion.identity);
         foreach (Renderer r in activeCross.GetComponentsInChildren<Renderer>())
         {
